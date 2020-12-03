@@ -1,0 +1,4 @@
+##盒模型：margin+border+padding+content 
+标准盒模型：盒子大小即congtent
+怪异盒模型：盒子大小即border+padding+content
+
