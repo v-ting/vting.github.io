@@ -1,1 +1,36 @@
-
+##数据响应
+#vue2中对象内部通过defineReactive，使用Object.defineProperty将属性进行劫持，数值重写数组方法
+实现原理：
+let state = { count: 0 };
+let active;
+// 变成响应式数据
+function defineReactive(obj) {
+  for (let key in obj) {
+    let value = obj[key];
+    let dep = [];
+    Object.defineProperty(obj, key, {
+      get() {
+        if (active) {
+          dep.push(active); //依赖收集
+        }
+        return value;
+      },
+      set(newValue) {
+        value = newValue;
+        dep.forEach(watcher => watcher()); //触发更新
+      }
+    });
+  }
+}
+defineReactive(state);
+const watcher = fn => {
+  active = fn;
+  fn();
+  active = null;
+};
+watcher(() => {
+  spanName.innerHTML = state.count;
+});
+inpName.oninput = function() {
+  state.count = this.value;
+};
