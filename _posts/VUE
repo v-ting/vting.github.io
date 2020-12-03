@@ -1,3 +1,13 @@
+##vuex
+state、mutations、actions、getters、modules
+state:存放数据状态
+mutations：对state进行操作
+actions：异步操作
+getters：加工state成员给外界 类似计算属性computed
+modules：模块化管理，可将上面成员进行模块管理
+方法dispatch触发action，action中commit触发mutation，mutation对state进行修改(必须经过mutation，异步操作使用action，同步可跳过action)
+
+
 ##数据响应
 #vue2中对象内部通过defineReactive，使用Object.defineProperty将属性进行劫持，数值重写数组方法
 实现原理：
