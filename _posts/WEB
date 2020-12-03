@@ -9,3 +9,42 @@
 原理是服务器之间发送请求不跨域
 proxy代理：可以设置changeorigin：true来开启虚拟服务器代发送请求，设置target来将请求转发目标。
 
+##节流防抖
+#节流
+就是指连续触发事件但是在 n 秒中只执行一次函数。
+实现原理：
+定时器节流：
+function throttle(func, wait) {
+ let timeout;
+ return function() {
+   if (!timeout) {
+     timeout = setTimeout(() => {
+       timeout = null;
+       func.apply(this);
+     }, wait);
+   }
+ };
+}
+时间戳节流：
+function throttle(func, wait) {
+  let pre = 0;
+  return function() {
+    let now = Date.now();
+    if (now - pre > wait) {
+      func.apply(this);
+      pre = now;
+    }
+  };
+}
+#防抖
+就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间。
+实现原理：
+function debounce(func, wait) {
+  let timeout;
+  return function() {
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(function() {
+      func.apply(this);
+    }, wait);
+  };
+}
