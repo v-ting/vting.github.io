@@ -1,0 +1,31 @@
+#js单线程 先执行主线程 后执行队列 先微任务后宏任务
+异步:定时器 ajax 事件处理 nodejs读取文件
+宏任务 setTimeout setInterval requestAnimationFrame i/o
+微任务 process.nextTick Promise Object.observe MutationObserver
+Promise中new promise立刻执行 .then异步需要进入队列
+ES7中async+await 用来简易代码，是异步变同步，它本质是 generate + yield 的语法糖，yield用来暂停，分段执行，.next()执行下一段，function*
+
+#call apply
+都是用来改变当前this的指向
+call的参数为简单类型 apply的参数为数组类型
+实现原理：
+
+call(apply同理): 
+将this引用到ctx.fn 当作属性后在调用
+Function.prototype.myCall = function(ctx) {
+  ctx = ctx || window;
+  ctx._fn = this;
+  let args = [...arguments].slice(1);
+  let result = ctx._fn(...args);
+  return result;
+};
+
+var a = {
+  name: "zcr",
+  fn: function(a, b) {
+    console.log(a + b);
+  }
+};
+var b = a.fn;
+b.myCall(a, 1, 2);
+
