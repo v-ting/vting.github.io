@@ -22,6 +22,17 @@ EventBus:兄弟间传值,创建Bus类,$emit触发自定义事件,$on监听自定
 Vuex:全局状态管理
 parent/root:可获取指定父/子组件的属性,使用emit+on来实现兄弟组件通信
 
+##vue性能优化
+#编码
+尽量减少data中数据(数据响应)、key唯一、路由(图片)懒加载、异步组件、防抖节流、按需导入
+SPA使用keep-alive缓存组件
+#用户体验
+骨架屏、PWA、缓存优化、服务端开启gzip压缩
+#SEO优化
+预渲染、SSR
+#打包优化
+压缩代码、Tree Shaking、cdn加载第三方模块、多线程打包happypack、splitChunks抽离公共文件、sourceMap优化
+
 
 ##数据响应
 #vue2中对象内部通过defineReactive，使用Object.defineProperty将属性进行劫持，数值重写数组方法
