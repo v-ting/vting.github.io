@@ -1,4 +1,19 @@
 ##盒模型：margin+border+padding+content 
+box-sizing：默认值为content-box即标准盒模型 border-box为怪异盒模型
 标准盒模型：盒子大小即congtent
 怪异盒模型：盒子大小即border+padding+content
 
+##link @import
+link是html标签 页面加载会被同时加载 权重高于@import
+@import是css提供 等页面加载完后加载
+
+##position
+#static
+position属性的默认值,块级元素和行内元素按照各自的特性进行显示。
+#relative
+相对定位,保留原来位置,根据top、left、buttom、right来进行相对于父元素的偏移
+#absolute
+绝对定位,脱离文档流,不占用原来位置(区别于float),变成块元素，可设置宽高,根据top、left、buttom、right来进行(相对于相邻标识了position不为static的元素)偏移
+#fixed
+类似absolute,但是相对于浏览器窗口进行偏移
+常用:子绝父相
