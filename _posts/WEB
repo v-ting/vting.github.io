@@ -60,3 +60,9 @@ function debounce(func, wait) {
 ##懒加载
 图片的加载是依赖于src路径，我们可以设置一个暂存器，把图片路劲放到暂存器中，当我们需要这个图片加载显示时，再把路径赋值给src，这样就能实现按需加载，也就是懒加载。
 通常使用html5中的data-属性作为暂存器，例如src的值默认是正在加载中的GIF，而真正的图片路径是保存在data-中。
+
+##sessionStorage localStorage cookie
+#都是保存在浏览器端、且同源的
+cookie常在http请求时携带 储存小 在过期时间之内有效 所有同源窗口共享
+sessiongStorage储存大 会话窗口关闭前有效 仅当前会话窗口有效(即使刷新 区别于js对象)
+localStorage储存大 始终有效 所有同源窗口共享
