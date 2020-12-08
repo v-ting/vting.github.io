@@ -66,3 +66,52 @@ function debounce(func, wait) {
 cookie常在http请求时携带 储存小 在过期时间之内有效 所有同源窗口共享
 sessiongStorage储存大 会话窗口关闭前有效 仅当前会话窗口有效(即使刷新 区别于js对象)
 localStorage储存大 始终有效 所有同源窗口共享
+
+##URL到页面加载完成
+浏览器开启一个线程处理这个请求，在浏览器、系统缓存、host文件中查找是否有DNS缓存，若没有则在远程DNS服务器上域名解析获得相应的IP(递归查询)
+浏览器通过IP向服务器发起tcp链接，建立tcp三次握手，发起http请求(基于tcp，不用担心数据传输问题)
+服务器请求数据，将数据返回浏览器
+浏览器拿到html文件就开始解析代码，遇到js/css/image等静态资源，就向服务器请求下载(keep-alive 建立一次请求多次)
+html构建DOM树，CSS构建渲染树 然后生成html渲染树 重排重绘 绘制到屏幕上
+服务器四次挥手关闭tcp连接
+
+##get post
+get一般用于信息获取，使用URL传递参数发送的信息数量有限制，请求可被缓存，数据类型只允许ASCII字符
+post一般用于修改服务器上的资源，对数据长度没要求，请求不被缓存，数据类型没有限制
+
+##http https
+
+
+##闭包
+var name = "The Window";
+
+　　var object = {
+　　　　name : "My Object",
+
+　　　　getNameFunc : function(){
+　　　　　　return function(){
+　　　　　　　　return this.name;
+　　　　　　};
+
+　　　　}
+
+　　};
+
+　　alert(object.getNameFunc()()); //The Window(getNameFunc()()的调用者为window)
+  
+  var name = "The Window";
+
+　　var object = {
+　　　　name : "My Object",
+
+　　　　getNameFunc : function(){
+　　　　　　var that = this;
+　　　　　　return function(){
+　　　　　　　　return that.name;
+　　　　　　};
+
+　　　　}
+
+　　};
+
+　　alert(object.getNameFunc()());//My Object(getNameFunc()的直接调用者为object 保存到that)
