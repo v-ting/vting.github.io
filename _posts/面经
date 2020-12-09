@@ -34,6 +34,9 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 
+#setInterval
+返回值为数字 每次返回会递增
+
 #圣杯布局的三种实现
 1.浮动
 左右各左右浮动
