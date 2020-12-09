@@ -15,3 +15,11 @@
 4.Promise
 
 #定位有哪些
+#static
+position属性的默认值,块级元素和行内元素按照各自的特性进行显示。
+#relative
+相对定位,保留原来位置,根据top、left、buttom、right来进行相对于父元素的偏移
+#absolute
+绝对定位,脱离文档流,不占用原来位置(区别于float),变成块元素，可设置宽高,根据top、left、buttom、right来进行(相对于相邻标识了position不为static的元素)偏移
+#fixed
+类似absolute,但是相对于浏览器窗口进行偏移
