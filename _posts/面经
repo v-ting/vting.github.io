@@ -34,8 +34,9 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 
-#setInterval
+#setInterval setTimeout
 返回值为数字 每次返回会递增
+清楚定时器需要用到每个对应的数字
 
 #圣杯布局的三种实现
 1.浮动
