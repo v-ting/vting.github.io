@@ -23,3 +23,20 @@ position属性的默认值,块级元素和行内元素按照各自的特性进�
 绝对定位,脱离文档流,不占用原来位置(区别于float),变成块元素，可设置宽高,根据top、left、buttom、right来进行(相对于相邻标识了position不为static的元素)偏移
 #fixed
 类似absolute,但是相对于浏览器窗口进行偏移
+
+#盒子内实现居中(无宽高)
+1.flex
+justify-content: center;
+align-items: center;
+2.position
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+#圣杯布局的三种实现
+1.浮动
+左右各左右浮动
+2.flex
+3.定位
+子绝父相 设置宽度以及top left等
