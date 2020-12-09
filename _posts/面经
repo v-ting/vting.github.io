@@ -1,1 +1,17 @@
+##1
+#this 为直接调用者
+严格模式下 自执行为undefine 非严格模式下 自执行为window 
 
+#原型链
+终点不为Object.prototype 因为还得取它的原型 为null
+
+#localStore SessionStore
+用户信息若需要记住密码则存在localStore 敏感账号便存在SessionStore
+
+#js实现异步
+1.回调函数 callback()
+2.事件监听 fn.on()
+3.发布和订阅
+4.Promise
+
+#定位有哪些
