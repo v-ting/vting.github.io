@@ -17,3 +17,9 @@ position属性的默认值,块级元素和行内元素按照各自的特性进�
 #fixed
 类似absolute,但是相对于浏览器窗口进行偏移
 常用:子绝父相
+
+##flex
+flex:1 指 flex：1 1 0% 即
+flex-grow：1 等分剩余空间
+flex-shrink：1 空间不足将缩小
+flex-basis：0% 指定了宽度或高度为0
