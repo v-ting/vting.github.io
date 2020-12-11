@@ -88,38 +88,37 @@ post一般用于修改服务器上的资源，对数据长度没要求，请求�
 先查看是否命中强缓存 来判断是否需要对服务器进行请求
 
 ##http https
-
+http：80端口 明文传输 未加密、安全性差
+https：443端口 加密、安全性好 基于http上加了SSL
+https过程：
+1、TCP 三次同步握手
+2、客户端验证服务器数字证书
+3、DH 算法协商对称加密算法的密钥、hash 算法的密钥
+4、SSL 安全加密隧道协商完成
+5、网页以加密的方式传输，用协商的对称加密算法和密钥加密，保证数据机密性；用协商的hash算法进行数据完整性保护，保证数据不被篡改。
 
 ##闭包
 var name = "The Window";
+var object = {
+  name : "My Object",
+  getNameFunc : function(){
+    return function(){
+      return this.name;
+    };
+  }
+};
 
-　　var object = {
-　　　　name : "My Object",
+alert(object.getNameFunc()()); //The Window(getNameFunc()()的调用者为window)
 
-　　　　getNameFunc : function(){
-　　　　　　return function(){
-　　　　　　　　return this.name;
-　　　　　　};
+var name = "The Window";
+var object = {
+  name : "My Object",
+  getNameFunc : function(){
+    var that = this;
+    return function(){
+      return that.name;
+    };
+  }
+};
 
-　　　　}
-
-　　};
-
-　　alert(object.getNameFunc()()); //The Window(getNameFunc()()的调用者为window)
-  
-  var name = "The Window";
-
-　　var object = {
-　　　　name : "My Object",
-
-　　　　getNameFunc : function(){
-　　　　　　var that = this;
-　　　　　　return function(){
-　　　　　　　　return that.name;
-　　　　　　};
-
-　　　　}
-
-　　};
-
-　　alert(object.getNameFunc()());//My Object(getNameFunc()的直接调用者为object 保存到that)
+alert(object.getNameFunc()());//My Object(getNameFunc()的直接调用者为object 保存到that)
