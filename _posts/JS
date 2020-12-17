@@ -18,6 +18,7 @@ Object
 异步:定时器 ajax 事件处理 nodejs读取文件
 宏任务 setTimeout setInterval requestAnimationFrame i/o
 微任务 process.nextTick Promise Object.observe MutationObserver
+process.nextTick指定的异步任务总是发生在所有异步任务之前
 Promise中new promise立刻执行 .then异步需要进入队列
 ES7中async+await 用来简易代码，是异步变同步，它本质是 generate + yield 的语法糖，yield用来暂停，分段执行，.next()执行下一段，function*
 
