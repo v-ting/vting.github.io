@@ -1,15 +1,30 @@
-#js单线程 先执行主线程 后执行队列 先微任务后宏任务
+##js数据类型
+#基本数据类型
+Undefined null boolean number string symbol(es6) bigint(es10)
+直接存储在栈（stack）中，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储
+#引用数据类型
+Object
+同时存储在栈（stack）和堆（heap）中，占据空间大、大小不固定。引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。
+当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体
+
+##数据类型判断
+#typeof
+除了null都可以正确的判断 判断对象不友好
+#instanceof
+可以精确判断对象 不能精确判断基本数据类型
+
+
+##js单线程 先执行主线程 后执行队列 先微任务后宏任务
 异步:定时器 ajax 事件处理 nodejs读取文件
 宏任务 setTimeout setInterval requestAnimationFrame i/o
 微任务 process.nextTick Promise Object.observe MutationObserver
 Promise中new promise立刻执行 .then异步需要进入队列
 ES7中async+await 用来简易代码，是异步变同步，它本质是 generate + yield 的语法糖，yield用来暂停，分段执行，.next()执行下一段，function*
 
-#call apply
+##call apply
 都是用来改变当前this的指向
 call的参数为简单类型 apply的参数为数组类型
 实现原理：
-
 call(apply同理): 
 将this引用到ctx.fn 当作属性后在调用
 Function.prototype.myCall = function(ctx) {
@@ -39,3 +54,12 @@ b.myCall(a, 1, 2);
 #拷贝继承
 #组合继承
 通过原型链以及构造函数的方式来组合继承
+
+##手写ajax
+var xhr = new XMLHttpRequest()
+xhr.open('get', 'index.xml', true)
+xhr.send(null)
+xhr.onreadystatechange = function () {
+  if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304)
+    console.log(xhr.responseXML);
+}
