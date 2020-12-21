@@ -1,3 +1,7 @@
+##md5加密
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+md5(pwd)
+
 ##跨域解决方案
 #jsonp
 原理是使用script标签进行数据请求不跨域，但是只能发起get请求，请求放在url上不安全。
