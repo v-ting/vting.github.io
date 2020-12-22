@@ -65,8 +65,8 @@ set 键值相同 但是不储存键 不能单独取值 只能遍历取
 (外文件)
 #axios二次封装
 #请求和响应拦截
-
 #token
+token一般存在vuex、localstore 发送请求时携带在headers
 
 #cli3创建项目的各个文件
 1.build文件夹：存放webpack的相关配置以及脚本文件，在实际开发过程中只会偶尔用到webpack.base.conf.js，配置less、babel等编译器
@@ -75,4 +75,7 @@ set 键值相同 但是不储存键 不能单独取值 只能遍历取
 3. node_modules：存放npm install命令下载的开发环境和生产环境的各种依赖
 4.src文件：工程项目的源码以及资源，包括页面图片、路由组件、路由配置、vuex、入口文件等
 
-
+#-webkit、-ms、-moz
+-moz代表firefox浏览器私有属性
+-ms代表ie浏览器私有属性
+-webkit代表safari、chrome私有属性
