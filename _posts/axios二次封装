@@ -1,0 +1,55 @@
+import axios from 'axios'
+import qs from 'qs'
+
+switch (process.env.NODE_ENV) {
+  default:
+    axios.defaults.baseURL = ''
+}
+
+//设置超时时间和跨域是否允许携带凭证
+axios.defaults.timeout = 10000
+axios.defaults.withCredentials = true
+
+//设置请求传递数据格式
+axios.defaults.headers['Content-Type'] = 'appliaction/x-www-form-urlencoded'
+axios.defaults.transformRequest = data => qs.stringify(data) //针对post请求
+
+//设置请求拦截器 Token校验(JWT)
+axios.interceptors.request.use(config => {
+  let token = localStorage.getItem('token')
+  token && (config.headers.Authorization = token)
+  return config
+}, error => {
+  return Promise.reject(error)
+})
+
+//设置相应拦截器
+// axios.defaults.validateStatus = status => {
+// 自定义响应成功的HTTP状态码
+//   return /^(2|3)\d{2}$/.test(status)
+// }
+axios.interceptors.response.use(response => {
+  return response.data
+}, error => {
+  let { response } = error
+  if (response) {
+    switch (response.status) {
+      case 401: //当前请求需要用户登录(一般是未登录)
+        break;
+      case 403: //服务器已经理解请求,但是拒绝执行(Token过期)
+        localStorage.removeItem('token')
+        break;
+      case 404: //请求失败
+        break;
+    }
+    return Promise.reject(error.response)
+  } else {
+    if (!window.navigator.onLine) {
+      //断网处理
+      return;
+    }
+    return Promise.reject(error)
+  }
+})
+
+export default axios
