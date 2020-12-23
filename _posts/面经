@@ -66,7 +66,9 @@ set 键值相同 但是不储存键 不能单独取值 只能遍历取
 #axios二次封装
 #请求和响应拦截
 #token
+token是不存储用户信息的，通过自己的私钥和登录后的id加上加密算法
 token一般存在vuex、localstore 发送请求时携带在headers
+
 
 #cli3创建项目的各个文件
 1.build文件夹：存放webpack的相关配置以及脚本文件，在实际开发过程中只会偶尔用到webpack.base.conf.js，配置less、babel等编译器
