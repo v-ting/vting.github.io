@@ -100,29 +100,3 @@ https过程：
 3、DH 算法协商对称加密算法的密钥、hash 算法的密钥
 4、SSL 安全加密隧道协商完成
 5、网页以加密的方式传输，用协商的对称加密算法和密钥加密，保证数据机密性；用协商的hash算法进行数据完整性保护，保证数据不被篡改。
-
-##闭包
-var name = "The Window";
-var object = {
-  name : "My Object",
-  getNameFunc : function(){
-    return function(){
-      return this.name;
-    };
-  }
-};
-
-alert(object.getNameFunc()()); //The Window(getNameFunc()()的调用者为window)
-
-var name = "The Window";
-var object = {
-  name : "My Object",
-  getNameFunc : function(){
-    var that = this;
-    return function(){
-      return that.name;
-    };
-  }
-};
-
-alert(object.getNameFunc()());//My Object(getNameFunc()的直接调用者为object 保存到that)
