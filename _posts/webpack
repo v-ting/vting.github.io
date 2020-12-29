@@ -22,5 +22,7 @@ source-map 提供源代码到构建后代码的映射 在webpack.webpack.js中�
 babel缓存 cacheDirectory：true 第二次打包构建速度更快 
 文件资源缓存 通过文件名增加contenthash值来解决文件更新问题 让代码上线运行更好使用
 tree shaking 去除无用代码 减少打包体积  前提使用ES6模块化以及开启production环境
+懒加载(使用时加载) 预加载(空闲时提前加载)
+PWA:渐进式网络开发应用程序(离线可访问) ServiceWorker
 
 优化代码运行性能
