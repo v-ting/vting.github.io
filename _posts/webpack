@@ -1,28 +1,31 @@
 ##webpack性能优化
 #开发环境性能优化
 优化打包构建速度
-HMR 模块热替换 一个模块发生变化 只会重新打包这一个模块 在devServer中使用hot：true开启
-样式文件可以使用HMR功能
-js文件默认不使用HMR功能
-实现：
-if(module.hot){
-module.hot.accept(js文件,function（）{
-  回调函数
-})
-}
-html文件默认不使用HMR功能(一个文件 不需要使用)，并且导致不能热更新 解决：修改入口，将html文件引入
+  *HMR 模块热替换 一个模块发生变化 只会重新打包这一个模块 在devServer中使用hot：true开启
+  样式文件可以使用HMR功能
+  js文件默认不使用HMR功能
+  实现：
+  if(module.hot){
+  module.hot.accept(js文件,function（）{
+    回调函数
+  })
+  }
+  html文件默认不使用HMR功能(一个文件 不需要使用)，并且导致不能热更新 解决：修改入口，将html文件引入
 
 优化代码调试
-source-map 提供源代码到构建后代码的映射 在webpack.webpack.js中使用 devtool:'source-map'开启
-使用eval-source-map调试更友好 使用eval-cheap-module-source-map性能更好
+  *source-map 提供源代码到构建后代码的映射 在webpack.webpack.js中使用 devtool:'source-map'开启
+  使用eval-source-map调试更友好 使用eval-cheap-module-source-map性能更好
 
+  
 #生产环境性能优化
-优化打包构建速度
-在rules中使用oneOf来匹配loader
-babel缓存 cacheDirectory：true 第二次打包构建速度更快 
-文件资源缓存 通过文件名增加contenthash值来解决文件更新问题 让代码上线运行更好使用
-tree shaking 去除无用代码 减少打包体积  前提使用ES6模块化以及开启production环境
-懒加载(使用时加载) 预加载(空闲时提前加载)
-PWA:渐进式网络开发应用程序(离线可访问) ServiceWorker
+  *优化打包构建速度
+  *在rules中使用oneOf来匹配loader
+  *babel缓存 cacheDirectory：true 第二次打包构建速度更快
+  *多进程打包:进程启动需要时间 进程通信需要开销  只要工作时间消耗长才需要多进程 
 
 优化代码运行性能
+  *缓存(hash-chunkhash-contenthash)
+  *tree shaking 去除无用代码 减少打包体积  前提使用ES6模块化以及开启production环境
+  *code split 
+  *懒加载(使用时加载) 预加载(空闲时提前加载)
+  *PWA:渐进式网络开发应用程序(离线可访问) ServiceWorker
