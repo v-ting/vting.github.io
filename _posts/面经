@@ -1,6 +1,7 @@
 ##1
 #this 为直接调用者
 严格模式下 自执行为undefine 非严格模式下 自执行为window 
+箭头函数有this 只是指向了父级
 
 #原型链
 终点不为Object.prototype 因为还得取它的原型 为null
@@ -72,7 +73,7 @@ token一般存在vuex、localstore 发送请求时携带在headers
 
 
 #cli3创建项目的各个文件
-1.build文件夹：存放webpack的相关配置以及脚本文件，在实际开发过程中只会偶尔用到webpack.base.conf.js，配置less、babel等编译器
+1.build文件夹：存放webpack的相关配置以及脚本文件，在实际开发过程中只会偶尔用到webpack.base.config.js，配置less、babel等编译器
 2.config文件夹：常用到此文件夹下config.js（index.js）配置开发环境的 端口号、是否开启热加载或者
 设置生产环境的静态资源相对路径、是否开启gzip压缩、npm run build 命令打包生成静态资源的名称和路径等。
 3. node_modules：存放npm install命令下载的开发环境和生产环境的各种依赖
@@ -88,4 +89,4 @@ token一般存在vuex、localstore 发送请求时携带在headers
 ##3
 #行内元素 块状元素
 
-#
+#解决0.1+0.2！=0.3
