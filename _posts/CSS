@@ -23,3 +23,9 @@ flex:1 指 flex：1 1 0% 即
 flex-grow：1 等分剩余空间
 flex-shrink：1 空间不足将缩小
 flex-basis：0% 指定了宽度或高度为0
+
+##清除浮动
+#额外标签法（在最后一个浮动标签后，新加一个标签，给其设置clear：both；）
+#父级添加overflow属性（父元素添加overflow:hidden）
+#使用after伪元素清除浮动
+#使用before和after双伪元素清除浮动
