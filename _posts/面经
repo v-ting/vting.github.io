@@ -88,5 +88,7 @@ token一般存在vuex、localstore 发送请求时携带在headers
 
 ##3
 #行内元素 块状元素
+行内元素不占一行 不能设置宽高 由内容决定 可用dispaly inline-block转成行内块元素设置宽高
+块状元素独占一行
 
 #解决0.1+0.2！=0.3
