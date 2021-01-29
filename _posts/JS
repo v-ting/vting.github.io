@@ -13,7 +13,7 @@ Object
 #instanceof
 可以精确判断对象 不能精确判断基本数据类型
 #constructor
-constructor 属性返回所有 JavaScript 变量的构造函数。
+constructor 属性返回所有 JavaSrcipt 变量的构造函数。
 
 ##js单线程 先执行主线程 后执行队列 先微任务后宏任务
 异步:定时器 ajax 事件处理 nodejs读取文件
